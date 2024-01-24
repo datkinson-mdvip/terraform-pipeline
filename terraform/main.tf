@@ -23,7 +23,7 @@ resource "azurerm_resource_group" "rg" {
 
 locals {  
   common_tags = {
-    Environment = terraform.workspace
+    #Environment = terraform.workspace
     Source      = "Terraform"
     Portfolio   = "Business Intelligence Team"
   }

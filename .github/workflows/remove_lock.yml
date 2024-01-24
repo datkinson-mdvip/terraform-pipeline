@@ -34,6 +34,7 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.AZURE_SP_TENANT_ID }}
       TF_VAR_LOCATION: ${{ vars.PROJECT_LOCATION }}
       TF_VAR_RESOURCE_GROUP: ${{ vars.PROJECT_RESOURCE_GROUP }}
+      INPUT_ID: ${{ inputs.LOCK_ID }}
       
     defaults:
         run:
@@ -53,7 +54,7 @@ jobs:
 
       - name: remove lock
         id: remove
-        run: terraform force-unlock -force "$github.event.inputs.LOCK_ID"
+        run: terraform force-unlock -force "$INPUT_ID"
 
 
         

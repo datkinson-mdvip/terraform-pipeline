@@ -1,0 +1,28 @@
+name: Deploy Dev Env
+
+on:
+    push:
+      branches:
+        - dev
+    workflow_dispatch:
+  
+permissions:
+    contents: read
+    statuses: write
+    checks: write
+    pull-requests: write
+  
+jobs:
+    terraform_setup:
+        name: Terraform Setup
+        uses: ./.github/workflows/tf-init.yml
+        with:
+            environment: dev
+        secrets: inherit
+
+
+
+                
+
+
+

@@ -7,7 +7,7 @@ on:
         description: 'Enter the ID of the lock'
         required: true
         default: 'xxxx'
-        type: text
+        type: string
   
 permissions:
     contents: read
@@ -21,19 +21,15 @@ jobs:
   TF-Init:
     runs-on: ubuntu-latest
     environment: dev
-    env:
-      WORKSPACE_NAME: ${{ inputs.environment }}
+    env:      
       TF_BACKEND_SA: ${{ vars.TF_BACKEND_SA }}
       TF_BACKEND_CONTAINER: ${{ vars.TF_BACKEND_CONTAINER }}
       TF_BACKEND_RESOURCE_GROUP: ${{ vars.TF_BACKEND_RG }}
-      TF_BACKEND_SUBSCRIPTION_ID: ${{ secrets.TF_BACKEND_SUBSCRIPTION_ID }}
       TF_BACKEND_CONFIG_KEY: ${{ vars.TF_BACKEND_KEY }}
       ARM_CLIENT_ID: ${{ secrets.AZURE_SP_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_SP_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SP_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.AZURE_SP_TENANT_ID }}
-      TF_VAR_LOCATION: ${{ vars.PROJECT_LOCATION }}
-      TF_VAR_RESOURCE_GROUP: ${{ vars.PROJECT_RESOURCE_GROUP }}
       INPUT_ID: ${{ inputs.LOCK_ID }}
       
     defaults:

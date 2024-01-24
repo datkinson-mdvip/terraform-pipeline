@@ -3,12 +3,12 @@ variable "subscription_id" {
   description = "The Azure subscription ID to use"
   
 }
-variable "location" {
+variable "LOCATION" {
   type = string
   description = "The Azure location to use"
   
 }
-variable "resource_group_name" {
+variable "RESOURCE_GROUP_NAME" {
   type = string
   description = "The name of the resource group in which to create the resources"
   

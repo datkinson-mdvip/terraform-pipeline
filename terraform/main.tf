@@ -15,8 +15,8 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  location = var.location
-  name     = var.resource_group_name
+  location = var.LOCATION
+  name     = var.RESOURCE_GROUP_NAME
   tags     = local.common_tags
 }
 

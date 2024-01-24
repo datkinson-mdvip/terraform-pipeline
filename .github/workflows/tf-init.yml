@@ -39,14 +39,6 @@ jobs:
         id: init
         run: terraform init -backend-config=storage_account_name="$TF_BACKEND_SA" -backend-config=container_name="$TF_BACKEND_CONTAINER" -backend-config=key="$TF_BACKEND_CONFIG_KEY" -backend-config=resource_group_name="$TF_BACKEND_RESOURCE_GROUP"
 
-      - name: Terraform select workspace
-        id: select_workspace
-        run: terraform workspace select $WORKSPACE_NAME
-
-      - name: Terraform Init Workspace
-        id: init_workspace
-        run: terraform init -backend-config=storage_account_name="$TF_BACKEND_SA" -backend-config=container_name="$TF_BACKEND_CONTAINER" -backend-config=key="$TF_BACKEND_CONFIG_KEY" -backend-config=resource_group_name="$TF_BACKEND_RESOURCE_GROUP"
-
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color

@@ -15,8 +15,8 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  location = var.LOCATION
-  name     = var.RESOURCE_GROUP_NAME
+  location = "eastus"
+  name     = "local-openai-rg"
   tags     = local.common_tags
 }
 

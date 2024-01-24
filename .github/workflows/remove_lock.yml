@@ -2,6 +2,12 @@ name: Manual remove TF lock
 
 on:
   workflow_dispatch:
+    inputs:
+      LOCK_ID:
+        description: 'Enter the ID of the lock'
+        required: true
+        default: 'xxxx'
+        type: text
   
 permissions:
     contents: read
@@ -11,16 +17,10 @@ permissions:
 
 
 jobs:
-  processInputs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up environment variables
-        run: echo "LOCK_ID=${{ inputs.lockID }}" 
-
 
   TF-Init:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+    environment: dev
     env:
       WORKSPACE_NAME: ${{ inputs.environment }}
       TF_BACKEND_SA: ${{ vars.TF_BACKEND_SA }}

@@ -32,6 +32,5 @@ jobs:
         run: terraform fmt -check --recursive ./
 
       - name: Initialize Terraform
-        run: terraform init -backend-config=storage_account_name="$TF_BACKEND_SA" -backend-config=container_name="$TF_BACKEND_CONTAINER" \
-        -backend-config=key="$TF_BACKEND_CONFIG_KEY" -backend-config=resource_group_name="$TF_BACKEND_RESOURCE_GROUP"
+        run: terraform init -backend-config=storage_account_name="$TF_BACKEND_SA" -backend-config=container_name="$TF_BACKEND_CONTAINER" -backend-config=key="$TF_BACKEND_CONFIG_KEY" -backend-config=resource_group_name="$TF_BACKEND_RESOURCE_GROUP"
 

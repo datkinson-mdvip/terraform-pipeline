@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     env:
-      WORKSPACE_NAME: "dev"
+      WORKSPACE_NAME: ${{ inputs.environment }}
       TF_BACKEND_SA: ${{ vars.TF_BACKEND_SA }}
       TF_BACKEND_CONTAINER: ${{ vars.TF_BACKEND_CONTAINER }}
       TF_BACKEND_RESOURCE_GROUP: ${{ vars.TF_BACKEND_RG }}

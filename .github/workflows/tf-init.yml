@@ -17,7 +17,9 @@ jobs:
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_SP_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SP_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.AZURE_SP_TENANT_ID }}
-    
+    defaults:
+        run:
+          working-directory: ./terraform
 
     steps:
       - uses: actions/checkout@v2

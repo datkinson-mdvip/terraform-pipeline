@@ -15,11 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up environment variables
-        run: |
-          echo "LOCK_ID=${{ inputs.lockID }}" 
-
-      - name: Run script with inputs
-
+        run: echo "LOCK_ID=${{ inputs.lockID }}" 
 
 
   TF-Init:

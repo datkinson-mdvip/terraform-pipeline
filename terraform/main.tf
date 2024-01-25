@@ -5,7 +5,7 @@ terraform {
       version = "~>3.82.0"
     }
   }
-    backend "azurerm" {}
+  backend "azurerm" {}
 }
 
 provider "azurerm" {
@@ -16,8 +16,8 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  location = "eastus"
-  name     = "local-openai-rg"
+  location = var.LOCATION
+  name     = var.RESOURCE_GROUP_NAME
   tags     = local.common_tags
 }
 

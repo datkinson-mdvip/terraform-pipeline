@@ -1,15 +1,9 @@
 variable "SUBSCRIPTION_ID" {
-  type = string
-  description = "The Azure subscription ID to use"
-  
+  type = string  
 }
 variable "LOCATION" {
-  type = string
-  description = "The Azure location to use"
-  
+  type = string  
 }
 variable "RESOURCE_GROUP_NAME" {
-  type = string
-  description = "The name of the resource group in which to create the resources"
-  
+  type = string  
 }

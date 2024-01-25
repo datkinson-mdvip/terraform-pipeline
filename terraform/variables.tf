@@ -1,6 +1,9 @@
 variable "SUBSCRIPTION_ID" {
   type = string  
 }
+variable "ENVIRONMENT" {
+  type = string
+}
 variable "LOCATION" {
   type = string  
 }

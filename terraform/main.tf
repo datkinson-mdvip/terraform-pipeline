@@ -12,7 +12,6 @@ provider "azurerm" {
   skip_provider_registration = true
   subscription_id = var.SUBSCRIPTION_ID
   features {}
-
 }
 
 resource "azurerm_resource_group" "rg" {
@@ -27,7 +26,7 @@ data "azurerm_resource_group" "rg" {
 
 resource "azurerm_service_plan" "asp" {
   location            = var.LOCATION
-  name                = "${terraform.workspace}-${var.SERVICE_NAME}-asp"
+  name                = "${var.ENVIRONMENT}-${var.SERVICE_NAME}-asp"
   os_type             = var.ASP_OS_TYPE
   resource_group_name = azurerm_resource_group.rg.name
   sku_name            = var.ASP_SKU_NAME
@@ -35,14 +34,12 @@ resource "azurerm_service_plan" "asp" {
 }
 
 data "azurerm_service_plan" "asp" {
-  name                = "${terraform.workspace}-${var.SERVICE_NAME}-asp"
+  name                = "${var.ENVIRONMENT}-${var.SERVICE_NAME}-asp"
   resource_group_name = azurerm_resource_group.rg.name
 }
 
 locals {  
-  service_name = "tfopenai"
   common_tags = {
-    #Environment = terraform.workspace
     Source      = "Terraform"
     Portfolio   = "Business Intelligence Team"    
   }

@@ -21,6 +21,10 @@ resource "azurerm_resource_group" "rg" {
   tags     = local.common_tags
 }
 
+data "azurerm_resource_group" "rg" {
+  name = var.RESOURCE_GROUP_NAME
+}
+
 resource "azurerm_service_plan" "asp" {
   location            = var.LOCATION
   name                = "${terraform.workspace}-${local.service_name}-asp"

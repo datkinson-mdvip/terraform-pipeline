@@ -26,6 +26,7 @@ jobs:
       TF_VAR_LOCATION: ${{ vars.PROJECT_LOCATION }}
       TF_VAR_RESOURCE_GROUP_NAME: ${{ vars.PROJECT_RESOURCE_GROUP }}
       TF_VAR_SUBSCRIPTION_ID: ${{ vars.PROJECT_SUBSCRIPTION_ID }}
+      TF_VAR_SERVICE_NAME: ${{ vars.PROJECT_SERVICE_NAME }}
       
     defaults:
         run:

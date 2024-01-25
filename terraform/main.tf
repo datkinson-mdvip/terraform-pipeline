@@ -27,11 +27,16 @@ data "azurerm_resource_group" "rg" {
 
 resource "azurerm_service_plan" "asp" {
   location            = var.LOCATION
-  name                = "${terraform.workspace}-${local.service_name}-asp"
-  os_type             = "Linux"
+  name                = "${terraform.workspace}-${var.SERVICE_NAME}-asp"
+  os_type             = var.ASP_OS_TYPE
   resource_group_name = azurerm_resource_group.rg.name
-  sku_name            = "B2"
+  sku_name            = var.ASP_SKU_NAME
   tags                = local.common_tags
+}
+
+data "azurerm_service_plan" "asp" {
+  name                = "${terraform.workspace}-${var.SERVICE_NAME}-asp"
+  resource_group_name = azurerm_resource_group.rg.name
 }
 
 locals {  

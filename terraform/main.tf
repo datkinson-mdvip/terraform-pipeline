@@ -21,11 +21,20 @@ resource "azurerm_resource_group" "rg" {
   tags     = local.common_tags
 }
 
+resource "azurerm_service_plan" "asp" {
+  location            = var.LOCATION
+  name                = "${terraform.workspace}-${local.service_name}-asp"
+  os_type             = "Linux"
+  resource_group_name = rg.name
+  sku_name            = "B2"
+  tags                = local.common_tags
+}
 
 locals {  
+  service_name = "tfopenai"
   common_tags = {
     #Environment = terraform.workspace
     Source      = "Terraform"
-    Portfolio   = "Business Intelligence Team"
+    Portfolio   = "Business Intelligence Team"    
   }
 }

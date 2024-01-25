@@ -25,7 +25,7 @@ resource "azurerm_service_plan" "asp" {
   location            = var.LOCATION
   name                = "${terraform.workspace}-${local.service_name}-asp"
   os_type             = "Linux"
-  resource_group_name = rg.name
+  resource_group_name = azurerm_resource_group.rg.name
   sku_name            = "B2"
   tags                = local.common_tags
 }
